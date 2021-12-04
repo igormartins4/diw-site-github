@@ -255,33 +255,21 @@ main#repositorios-github {
   border-radius: 0.8rem;
 }
 
-#repositorios article a {
+main section a {
   text-decoration: none;
   color: var(--color-text);
-
 }
 
 /* Sexta Seção - Recomendação de Conteúdo ==============================================================*/
-.video-container {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%;
+
+
+#container-usuarios article {
+  padding: 1rem;
+  background-color: var(--bg-panel);
+  border-radius: 0.8rem;
+  margin: 1rem 0;
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-section .video-article p,
-span > p {
-  line-height: 0rem;
-  margin: 1.5rem 0;
-}
 
 /* Footer ===================================================================*/
 footer .footer-container {
@@ -298,6 +286,8 @@ footer .footer-container {
 footer .footer-container p {
   text-align: center;
 }
+
+
 
 /* Responsivo ===============================================================================*/
 
@@ -422,32 +412,8 @@ footer .footer-container p {
   }
 
   /* Sexta Seção - Recomendação de Conteúdo ==================================*/
-  section main.container-recomendacoes {
+  section main#container-recomendacoes {
     align-items: center;
     column-gap: 2rem;
-  }
-  section main.container-recomendacoes .video-container {
-    height: 14rem;
-    object-fit: cover;
-  }
-  .video-container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 56.25%;
-  }
-
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
-  section .video-article p,
-  span > p {
-    line-height: 0rem;
-    margin: 1.5rem 0;
   }
 }

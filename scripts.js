@@ -2,34 +2,24 @@ function loadProfile() {
   let requisicao = new XMLHttpRequest();
 
   requisicao.onload = function () {
-    // alert("Retorno da requisição: \n" + this.responseText);
-
     let data = JSON.parse(this.responseText);
 
     let profile = `
-        <div class="img-descricao">
-            <img src="${data.avatar_urlxxxxxxxxxxxxxx}" alt="Foto de ${data.name}" loading="lazy">
-        </div>
-        <div class="container-descricao">
-            <div class="descricao">
-                <h2>${data.name}</h2>
-                <p><strong>Descrição:</strong> ${data.bio}</p>
-                </div>
-                    <!-- <div class="container-sociais">
-                        <h2>Redes Sociais</h2>
-                        <div class="redes-sociais">
-                            <a href="https://www.facebook.com/">
-                                <img src="./imgs/facebook.svg" alt="Logo Facebook" loading="lazy">
-                            </a>
-                            <a href="https://twitter.com/">
-                                <img src="./imgs/twitter.svg" alt="Logo Twitter" loading="lazy">
-                            </a>
-                            <a href="https://instagram.com/">
-                                <img src="./imgs/instagram.svg" alt="Logo Instagram" loading="lazy">
-                            </a>
-                        </div>
-                    </div> -->
-                </div>
+        <a href="${data.html_url}" target="_blank">
+            <div class="img-descricao">
+                <img src="${data.avatar_urlxxxxxxxxxxxxxx}" alt="Foto de ${
+      data.name
+    }" loading="lazy">
+            </div>
+            <div class="container-descricao">
+                <div class="descricao">
+                    <h2>${data.name}</h2>
+            </a>
+                    <p><strong>Descrição:</strong> ${data.bio}</p>
+                    <p><strong>Cidade:</strong> ${data.location}</p>
+                    <p><strong>Conta criada em:</strong> ${formatDate(
+                      data.created_at
+                    )}</p>
     `;
     document.getElementById("perfil").innerHTML = profile;
   };
@@ -47,21 +37,21 @@ function loadRepos() {
   let requisicao = new XMLHttpRequest();
 
   requisicao.onload = function () {
-    // alert("Retorno da requisição: \n" + this.responseText);
-
     let data = JSON.parse(this.responseText);
 
     let repositories = "";
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 3; i++) {
       repositories += `
         <article>
-            <a href="${data[i].html_url}" target="_blank">
+            <a href="${data[i].html_urlxxxxxxxxxx}" target="_blank">
                 <img src="./imgs/folder.svg" alt="Repositório" loading="lazy">
                 <h3>${data[i].name}</h3>
             </a>
             <p>${data[i].description}</p>
-              <p>Criado em: ${formatedDate(data[i].created_at)}</p>
+            <p>Criado em: ${formatDate(data[i].created_at)}</p>
+            <p>Linguagem Principal: ${data[i].language}</p>
+            <p>Tamanho: ${data[i].size} Kb</p>
         </article>
       `;
     }
@@ -78,14 +68,94 @@ function loadRepos() {
   requisicao.send();
 }
 
-function formatedDate(date) {
+function formatDate(date) {
   var data = new Date(date),
     dia = data.getDate(date).toString(),
     diaF = dia.length == 1 ? "0" + dia : dia,
-    mes = (data.getMonth() + 1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+    mes = (data.getMonth() + 1).toString(), // +1 pois no getMonth Janeiro começa com zero.
     mesF = mes.length == 1 ? "0" + mes : mes,
     anoF = data.getFullYear();
   return diaF + "/" + mesF + "/" + anoF;
+}
+
+let input = document.getElementById("pesquisar");
+input.addEventListener("keyup", function (event) {
+  if (event.code === "Enter") {
+    event.preventDefault();
+    SearchUser();
+    input.href = "usuarios";
+  }
+});
+
+function SearchUser() {
+  let userParaBuscar = document.getElementById("pesquisa-user").value;
+
+  let requisicao = new XMLHttpRequest();
+
+  requisicao.onload = function () {
+    let data = JSON.parse(this.responseText);
+
+    for (let i = 0; i < 6; i++) {
+      async function loadUserInfo(user) {
+        let requisicao = new XMLHttpRequest();
+
+        requisicao.onload = function () {
+          let data = JSON.parse(this.responseText);
+
+          let user = `
+                <article>
+                <a href="${data.html_url}" target="_blank">
+                    <div class="img-descricao">
+                        <img src="${data.avatar_url}" alt="Foto de ${
+            data.login
+          }" loading="lazy">
+                    </div>
+                    <div class="container-descricao">
+                        <div class="descricao">
+                            <h2>${data.login}</h2>
+                    </a>
+                            <p><strong>Descrição:</strong> ${data.bio}</p>
+                            <p><strong>Cidade:</strong> ${data.location}</p>
+                            <p><strong>Conta criada em:</strong> ${formatDate(
+                              data.created_at
+                            )}</p>
+            </article>
+            `;
+          document.getElementById("container-usuarios").innerHTML = user;
+        };
+
+        requisicao.onerror -
+          function () {
+            alert(
+              `Erro na requisição \nCódigo: ${this.status} - ${this.statusText}`
+            );
+          };
+
+        requisicao.open("GET", `https://api.github.com/users/${user}`);
+        requisicao.send();
+      }
+
+      loadUserInfo(data.items[i].login);
+    }
+  };
+
+  requisicao.onerror -
+    function () {
+      alert(`Erro na requisição \nCódigo: ${this.status} - ${this.statusText}`);
+    };
+
+  requisicao.open(
+    "GET",
+    `https://api.github.com/search/users?q=${formatString(userParaBuscar)}`
+  );
+  requisicao.send();
+}
+
+function formatString(user) {
+  let name = user.split(" ").join("");
+  name.toLowerCase();
+
+  return name;
 }
 
 function loadFunctions() {

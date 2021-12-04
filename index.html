@@ -20,12 +20,12 @@
 <body>
     <header class="site-header">
         <nav class="menu">
-            <a href="#">perfil</a>
+            <a href="#perfil">perfil</a>
             <a href="#repositorios"> • repositórios github</a>
-            <a href="#"> • conteúdo</a>
+            <a href="#usuarios"> • busca de usuários</a>
         </nav>
         <div id="pesquisar">
-            <input type="text" placeholder="Pesquisar" />
+            <input type="text" placeholder="Pesquisar Usuários do GitHub" id="pesquisa-user" />
         </div>
     </header>
     <main>
@@ -35,58 +35,16 @@
         <section id="repositorios">
             <div class="container-repo">
                 <h1>Repositórios Github</h1>
+                <p>Clique na pasta ou no nome para abrir o repositório desejado.</p>
                 <main id="repositorios-github"></main>
             </div>
         </section>
-        <div class="container">
+        <div id="usuarios">
             <section class="card">
-                <h1>Recomendação de Conteúdo</h1>
-                <main class="container-recomendacoes">
-                    <article class="video-article">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UWAvkvGzg6c"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <h3><b>Vídeo: </b>Como Fotografar um Buraco Negro</h3>
-                        <p><b>Canal: </b>Ciência Todo Dia</p>
-                        <span>
-                            <p><b>Diretor: </b>Pedro Loos</p>
-                            <p><b>Data Postagem: </b>04/05/2021</p>
-                        </span>
-                    </article>
-                    <article class="video-article">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0tG-06TQVHs"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <h3><b>Vídeo: </b>O foguete mais poderoso da história (até agora)</h3>
-                        <p><b>Canal: </b>Dobra Espacial</p>
-                        <span>
-                            <p><b>Diretor: </b>Dino</p>
-                            <p><b>Data Postagem: </b>13/06/2021</p>
-                        </span>
-                    </article>
-                    <article class="video-article">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UK4d4TsgMOk"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <h3><b>Vídeo: </b>o Planador de 132 Toneladas Ep. 288</h3>
-                        <p><b>Canal: </b>Aviões e Músicas com Lito Sousa</p>
-                        <span>
-                            <p><b>Diretor: </b>Lito Sousa</p>
-                            <p><b>Data Postagem: </b>14/10/2019</p>
-                        </span>
-                    </article>
-                </main>
+                <h1>Busca de Usuários do GitHub</h1>
+                <main id="container-usuarios"></main>
                 <footer>
-                    <button><span id="mais">+</span><span>Carregar mais recomendações</button>
+                    <button><span id="mais">+</span><span>Carregar mais usuarios</button>
                 </footer>
             </section>
         </div>
