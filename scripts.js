@@ -7,7 +7,7 @@ function loadProfile() {
     let profile = `
         <a href="${data.html_url}" target="_blank">
             <div class="img-descricao">
-                <img src="${data.avatar_urlxxxxxxxxxxxxxx}" alt="Foto de ${
+                <img src="${data.avatar_url}" alt="Foto de ${
       data.name
     }" loading="lazy">
             </div>
