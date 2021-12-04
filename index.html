@@ -24,9 +24,6 @@
             <a href="#repositorios"> • repositórios github</a>
             <a href="#usuarios"> • busca de usuários</a>
         </nav>
-        <div id="pesquisar">
-            <input type="text" placeholder="Pesquisar Usuários do GitHub" id="pesquisa-user" />
-        </div>
     </header>
     <main>
         <div class="container">
@@ -37,14 +34,20 @@
                 <h1>Repositórios Github</h1>
                 <p>Clique na pasta ou no nome para abrir o repositório desejado.</p>
                 <main id="repositorios-github"></main>
+                <footer>
+                    <button id="carregar-repos"><span id="mais">+</span><span>Carregar mais Repositórios</button>
+                </footer>
             </div>
         </section>
-        <div id="usuarios">
+        <div id="usuarios" class="container">
             <section class="card">
                 <h1>Busca de Usuários do GitHub</h1>
+                <div id="pesquisar">
+                    <input type="text" placeholder="Pesquisar Usuários do GitHub" id="pesquisa-user" />
+                </div>
                 <main id="container-usuarios"></main>
                 <footer>
-                    <button><span id="mais">+</span><span>Carregar mais usuarios</button>
+                    <button id="carregar-usuarios"><span id="mais">+</span><span>Carregar mais Usuários</button>
                 </footer>
             </section>
         </div>

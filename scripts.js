@@ -20,6 +20,7 @@ function loadProfile() {
                     <p><strong>Conta criada em:</strong> ${formatDate(
                       data.created_at
                     )}</p>
+                    <p><strong>${data.followers} seguidores</p>
     `;
     document.getElementById("perfil").innerHTML = profile;
   };
@@ -41,19 +42,19 @@ function loadRepos() {
 
     let repositories = "";
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < data.length; i++) {
       repositories += `
-        <article>
-            <a href="${data[i].html_urlxxxxxxxxxx}" target="_blank">
-                <img src="./imgs/folder.svg" alt="Repositório" loading="lazy">
-                <h3>${data[i].name}</h3>
-            </a>
-            <p>${data[i].description}</p>
-            <p>Criado em: ${formatDate(data[i].created_at)}</p>
-            <p>Linguagem Principal: ${data[i].language}</p>
-            <p>Tamanho: ${data[i].size} Kb</p>
-        </article>
-      `;
+      <article>
+          <a href="${data[i].html_url}" target="_blank">
+              <img src="./imgs/folder.svg" alt="Repositório" loading="lazy">
+              <h3>${data[i].name}</h3>
+          </a>
+          <p>${data[i].description}</p>
+          <p>Criado em: ${formatDate(data[i].created_at)}</p>
+          <p>Linguagem Principal: ${data[i].language}</p>
+          <p>Tamanho: ${data[i].size} Kb</p>
+      </article>
+    `;
     }
 
     document.getElementById("repositorios-github").innerHTML = repositories;
@@ -115,10 +116,20 @@ function SearchUser() {
                             <h2>${data.login}</h2>
                     </a>
                             <p><strong>Descrição:</strong> ${data.bio}</p>
-                            <p><strong>Cidade:</strong> ${data.location}</p>
+                            <p><strong>Localização:</strong> ${
+                              data.location
+                            }</p>
                             <p><strong>Conta criada em:</strong> ${formatDate(
                               data.created_at
                             )}</p>
+                            <p><strong>Número de Repositórios:</strong> ${
+                              data.public_repos
+                            }</p>
+                            <p><strong>Seguindo:</strong> ${data.following}</p>
+                            <p><strong>Seguidores:</strong> ${
+                              data.followers
+                            }</p>
+
             </article>
             `;
           document.getElementById("container-usuarios").innerHTML = user;
