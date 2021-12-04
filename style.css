@@ -19,6 +19,7 @@
 
 html {
   font-size: 93.75w;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -225,11 +226,39 @@ span {
 }
 
 /* Quarta Seção - Repositórios Github ===================================================================*/
-.repositorios {
+#repositorios {
   background-color: var(--bg);
   width: 100%;
 
   padding: 1rem;
+}
+
+main#repositorios-github {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#repositorios article {
+  text-align: center;
+
+  /* margin: 0.5rem; */
+  padding: 1rem;
+  width: 20rem;
+}
+
+#repositorios article img {
+  width: 5rem;
+  background: var(--color-text);
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+
+#repositorios article a {
+  text-decoration: none;
+  color: var(--color-text);
+
 }
 
 /* Sexta Seção - Recomendação de Conteúdo ==============================================================*/
@@ -352,7 +381,7 @@ footer .footer-container p {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: stretch;
-    
+
     margin: 0;
   }
 
@@ -360,8 +389,7 @@ footer .footer-container p {
     display: grid;
     grid-template-columns: 200px 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas:
-      "logo titulo descricao";
+    grid-template-areas: "logo titulo descricao";
     gap: 1rem;
 
     align-items: center;
@@ -379,7 +407,7 @@ footer .footer-container p {
     grid-area: logo;
   }
 
-  main .article-exp .container-texto-exp { 
+  main .article-exp .container-texto-exp {
     grid-area: descricao;
   }
 

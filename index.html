@@ -21,9 +21,7 @@
     <header class="site-header">
         <nav class="menu">
             <a href="#">perfil</a>
-            <a href="#"> • projetos</a>
-            <a href="#"> • experiência</a>
-            <a href="#"> • repositórios github</a>
+            <a href="#repositorios"> • repositórios github</a>
             <a href="#"> • conteúdo</a>
         </nav>
         <div id="pesquisar">
@@ -32,152 +30,12 @@
     </header>
     <main>
         <div class="container">
-            <section class="card container-perfil">
-                <div class="img-descricao">
-                    <img src="./imgs/foto-min.jpg" alt="Minha Foto" loading="lazy">
-                </div>
-                <div class="container-descricao">
-                    <div class="descricao">
-                        <h2>Igor Martins</h2>
-                        <p><strong>Objetivos:</strong> Ser o <i>milior</i> Desenvolvedor Front-End e o programador mais
-                            brabo.</p>
-                    </div>
-                    <div class="container-sociais">
-                        <h2>Redes Sociais</h2>
-                        <div class="redes-sociais">
-                            <a href="https://www.facebook.com/">
-                                <img src="./imgs/facebook.svg" alt="Logo Facebook" loading="lazy">
-                            </a>
-                            <a href="https://twitter.com/">
-                                <img src="./imgs/twitter.svg" alt="Logo Twitter" loading="lazy">
-                            </a>
-                            <a href="https://instagram.com/">
-                                <img src="./imgs/instagram.svg" alt="Logo Instagram" loading="lazy">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="card">
-                <header>
-                    <h1>Projetos</h1>
-                    <select id="projetos" name="select" placeholder="Pesquisar">
-                        <option disabled selected>Selecione um projeto</option>
-                        <option>Choque de Cultura</option>
-                        <option>Rogerinho do Ingá</option>
-                        <option>Maurílio dos Anjos</option>
-                        <option>Renan de Almeida</option>
-                    </select>
-                </header>
-                <main>
-                    <section class="img-section">
-                        <h3>SR-71 Blackbird - 2019</h3>
-                        <img src="./imgs/Blackbird-min.png" alt="Ilustração do Blackbird" loading="lazy">
-                    </section>
-                    <section class="img-section">
-                        <h3>Parachutes - 2019</h3>
-                        <img src="./imgs/Parachutes-min.jpg" alt="Cosplay da capa de Parachutes" loading="lazy">
-                    </section>
-                    <section class="img-section">
-                        <h3>Concorde - 2018</h3>
-                        <img src="./imgs/Concorde_novo-min.png" alt="Ilustração do Concorde" loading="lazy">
-                    </section>
-                    <section class="img-section">
-                        <h3>Discovery - 2019</h3>
-                        <img src="./imgs/Ônibus Espacial-min.png" alt="Ilustração de um Ônibus Espacial">
-                    </section>
-                </main>
-                <footer>
-                    <button><span id="mais">+</span><span>Carregar mais projetos</button></span>
-                </footer>
-            </section>
-            <section class="card">
-                <h1>Experiência</h1>
-                <main class="experiencias">
-                    <article class="article-exp">
-                        <h3><s>Passador de Raiva Profissional</s> Designer Gráfico</h3>
-                        <div class="container-imagens">
-                            <img src="./imgs/logo-min.jpg" alt="Logo do Titan Studio44" loading="lazy">
-                        </div>
-                        <div class="container-texto-exp">
-                            <p><s>Passava raiva</s> era designer gráfico até pouco tempo atrás e ir para o tenebroso
-                                mundo da computação.</p>
-                            <span>Período: 12/2016 até 12/2020</span>
-                        </div>
-                    </article>
-                    <article class="article-exp">
-                        <h3><s>Passador de Raiva Profissional 2</s> Desenvolvedor Júnior Front-end</h3>
-                        <div class="container-imagens">
-                            <img src="./imgs/logo-react-min.png" alt="Logo do ReactJS" loading="lazy">
-                        </div>
-                        <div class="container-texto-exp">
-                            <p><s>Deixei de passar raiva com design pra brigar com computador</s> me interessei por
-                                programação e aqui estamos né meu amigo que lê este texto e não está entendendo
-                                nada.</p>
-                            <span>Período: 12/2020 até atualmente</span>
-                        </div>
-                    </article>
-                    <article class="article-exp">
-                        <h3>Motorista de Ônibus</h3>
-                        <div class="container-imagens">
-                            <img src="./imgs/Pintura Foto-min.png" alt="Imagem de um ônibus" loading="lazy">
-                        </div>
-                        <div class="container-texto-exp">
-                            <p>Pilotei bravamente estas ferozes máquinas pelas sinuosas vias de Belorihills por dois
-                                anos (é
-                                brincadeira tá?).</p>
-                            <span>Período: 05/2016 até 05/2018</span>
-                        </div>
-                    </article>
-                    <article class="article-exp">
-                        <h3>Vendedor de Açaí</h3>
-                        <div class="container-imagens">
-                            <img src="./imgs/Açaí Du Barney-min.png" alt="Imagem de um Barney" loading="lazy">
-                        </div>
-                        <div class="container-texto-exp">
-                            <p>Experiência com atendimento ao público e gerenciamento de crises relacionais no Açaí do
-                                Barney.</p>
-                            <span>Período: 04/2014 até 07/2015</span>
-                        </div>
-                    </article>
-                </main>
-                <footer>
-                    <button><span id="mais">+</span><span>Carregar mais experiências</button></span>
-                </footer>
-            </section>
+            <section id="perfil" class="card container-perfil"></section>
         </div>
-        <section class="repositorios">
+        <section id="repositorios">
             <div class="container-repo">
                 <h1>Repositórios Github</h1>
-                <main>
-                    <article>
-                        <h3>letmeask</h3>
-                        <p><strong>Descrição </strong>O letmeask é uma aplicação para gerenciar melhor lives e reuniões
-                            de
-                            perguntas ou respostas, as Q&A. Por lá, o administrador pode organizar dúvidas por salas e
-                            marca-lás como respondidas ou até destacar-las.</p>
-                        <p>Atualizado em: 04/05/2021</p>
-                    </article>
-                    <article>
-                        <h3>moveit</h3>
-                        <p><strong>Descrição </strong>O moveit é uma aplicação para ajudar as pessoas no controle de
-                            tempo
-                            em frente ao computador ou smartphones, incentivando fazer pequenas pausas para descanso dos
-                            olhos e exercícios.</p>
-                        <p>Atualizado em: 24/09/2021</p>
-                    </article>
-                    <article>
-                        <h3>WikiStar</h3>
-                        <p><strong>Descrição </strong>O WikiStar é um site simples para ver algumas estatisticas e
-                            curiosidades da franquia de filmes Star Wars. Para isso, foi usado a Swapi (StarWars API)
-                            para
-                            obter as informações.</p>
-                        <p>Atualizado em: 20/01/2021</p>
-                    </article>
-                </main>
-                <footer>
-                    <button><span id="mais">+</span><span>Carregar mais repositórios</button></span>
-                </footer>
+                <main id="repositorios-github"></main>
             </div>
         </section>
         <div class="container">
