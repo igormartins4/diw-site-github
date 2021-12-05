@@ -327,10 +327,6 @@ footer .footer-container p {
     margin: auto;
   }
 
-  body header #pesquisar {
-    width: min(100%, 300px);
-  }
-
   /* Primeira Seção - Descrição ==============================================*/
   .container-perfil {
     display: flex;
@@ -448,5 +444,16 @@ footer .footer-container p {
     width: 10rem;
 
     margin: 0;
+  }
+
+  #usuarios section #container-usuarios {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  section #container-usuarios article {
+    width: 22rem;
   }
 }

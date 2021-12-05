@@ -87,57 +87,49 @@ function SearchUser() {
   requisicao.onload = function () {
     let data = JSON.parse(this.responseText);
 
-    for (let i = 0; i < 3; i++) {
+    let users = '';
+
+    for (let i = 0; i < 4; i++) {
       function loadUserInfo(user) {
         let requisicao = new XMLHttpRequest();
 
-        requisicao.onload = function () {
+        requisicao.onload = async function () {
           let data = JSON.parse(this.responseText);
 
-          let user = `
-                <article>
-                <a href="${data.html_url}" target="_blank">
-                    <div class="img-descricao">
-                        <img src="${data.avatar_url}" alt="Foto de ${
-            data.login
-          }" loading="lazy">
-                    </div>
-                    <div class="container-descricao">
-                        <div class="descricao">
-                            <h2>${data.login}</h2>
-                    </a>
-                            <p><strong>Descrição:</strong> ${data.bio}</p>
-                            <p><strong>Localização:</strong> ${
-                              data.location
-                            }</p>
-                            <p><strong>Conta criada em:</strong> ${formatDate(
-                              data.created_at
-                            )}</p>
-                            <p><strong>Número de Repositórios:</strong> ${
-                              data.public_repos
-                            }</p>
-                            <p><strong>Seguindo:</strong> ${data.following}</p>
-                            <p><strong>Seguidores:</strong> ${
-                              data.followers
-                            }</p>
-
+          users += `
+            <article>
+              <a href="${data.html_url}" target="_blank">
+                <div class="img-descricao">
+                  <img src="${data.avatar_url}" alt="Foto de ${data.login}" loading="lazy">
+                </div>
+                <div class="container-descricao">
+                  <div class="descricao">
+                    <h2>${data.login}</h2>
+              </a>
+                    <p><strong>Descrição:</strong> ${data.bio}</p>
+                    <p><strong>Localização:</strong> ${data.location}</p>
+                    <p><strong>Conta criada em:</strong> ${formatDate(data.created_at)}</p>
+                    <p><strong>Número de Repositórios:</strong> ${data.public_repos}</p>
+                    <p><strong>Seguindo:</strong> ${data.following}</p>
+                    <p><strong>Seguidores:</strong> ${data.followers}</p>
             </article>
             `;
-          document.getElementById("container-usuarios").innerHTML = user;
-        };
-
-        requisicao.onerror -
+          };
+          
+          requisicao.onerror -
           function () {
             alert(
               `Erro na requisição \nCódigo: ${this.status} - ${this.statusText}`
             );
           };
-
-        requisicao.open("GET", `https://api.github.com/users/${user}`);
+          
+        requisicao.open("GET", `https://api.github.com/users/${user}`, false);
         requisicao.send();
       }
-
+      
       loadUserInfo(data.items[i].login);
+
+      document.getElementById("container-usuarios").innerHTML = users;
     }
   };
 
