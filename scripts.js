@@ -79,15 +79,6 @@ function formatDate(date) {
   return diaF + "/" + mesF + "/" + anoF;
 }
 
-let input = document.getElementById("pesquisar");
-input.addEventListener("keyup", function (event) {
-  if (event.code === "Enter") {
-    event.preventDefault();
-    SearchUser();
-    input.href = "usuarios";
-  }
-});
-
 function SearchUser() {
   let userParaBuscar = document.getElementById("pesquisa-user").value;
 
@@ -96,8 +87,8 @@ function SearchUser() {
   requisicao.onload = function () {
     let data = JSON.parse(this.responseText);
 
-    for (let i = 0; i < 6; i++) {
-      async function loadUserInfo(user) {
+    for (let i = 0; i < 3; i++) {
+      function loadUserInfo(user) {
         let requisicao = new XMLHttpRequest();
 
         requisicao.onload = function () {
@@ -175,3 +166,13 @@ function loadFunctions() {
 }
 
 window.addEventListener("load", loadFunctions);
+
+let botaoPesquisar = document.getElementById("pesquisa-button");
+let inputPesquisar = document.getElementById("pesquisa-user");
+inputPesquisar.addEventListener("keyup", function (event) {
+  if (event.code === "Enter") {
+    event.preventDefault();
+    botaoPesquisar.click();
+  }
+});
+botaoPesquisar.addEventListener("click", SearchUser);

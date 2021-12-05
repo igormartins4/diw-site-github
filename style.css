@@ -258,6 +258,11 @@ main section a {
 #usuarios section #pesquisar {
   width: min(100%, 800px);
   margin-top: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
 }
 #usuarios section #pesquisar input {
   border: 1px solid var(--bg-panel);
@@ -266,9 +271,20 @@ main section a {
   font-weight: bold;
   background: var(--bg-panel);
   padding: 1rem;
-  width: 50%;
+  width: 100%;
 }
 
+section #pesquisar button {
+  border: 1px solid var(--bg-panel);
+  border-radius: 0.4rem;
+  color: var(--bg-panel);
+  font-weight: bold;
+  background: var(--color-text);
+  padding: 1rem;
+  width: 100%;
+
+  margin: 0.5rem 0;
+}
 
 /* Footer ===================================================================*/
 footer .footer-container {
@@ -285,10 +301,6 @@ footer .footer-container {
 footer .footer-container p {
   text-align: center;
 }
-
-
-
-
 
 /* Responsivo ===============================================================================*/
 
@@ -412,9 +424,29 @@ footer .footer-container p {
     column-gap: 2rem;
   }
 
-  /* Sexta Seção - Recomendação de Conteúdo ==================================*/
-  section main#container-recomendacoes {
-    align-items: center;
-    column-gap: 2rem;
+  #usuarios section #pesquisar {
+    flex-direction: row;
+  }
+
+  #usuarios section #pesquisar input {
+    border: 1px solid var(--bg-panel);
+    border-radius: 0.4rem 0 0 0.4rem;
+    color: var(--color-text);
+    font-weight: bold;
+    background: var(--bg-panel);
+    padding: 1rem;
+    width: 20rem;
+  }
+
+  section #pesquisar button {
+    border: 1px solid var(--bg-panel);
+    border-radius: 0 0.4rem 0.4rem 0;
+    color: var(--bg-panel);
+    font-weight: bold;
+    background: var(--color-text);
+    padding: 1rem;
+    width: 10rem;
+
+    margin: 0;
   }
 }
