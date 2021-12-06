@@ -242,9 +242,14 @@ main#repositorios-github {
   border-radius: 0.8rem;
 }
 
+
 main section a {
   text-decoration: none;
   color: var(--color-text);
+}
+
+.card-repos-none {
+  display: none;
 }
 
 /* Sexta Seção - Recomendação de Conteúdo ==============================================================*/
@@ -284,6 +289,10 @@ section #pesquisar button {
   width: 100%;
 
   margin: 0.5rem 0;
+}
+
+.card-user-none {
+  display: none;
 }
 
 /* Footer ===================================================================*/
